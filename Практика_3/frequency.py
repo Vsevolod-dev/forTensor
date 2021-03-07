@@ -1,35 +1,36 @@
-# word = input("Введите слово = ")
+def freq(str):
+    freq_obj = {}
 
-# all_freq = {}
+    for i in str:
+        if i in freq_obj:
+            freq_obj[i] += 1
+        else:
+            freq_obj[i] = 1
 
-# for i in word:
-#     if i in all_freq:
-#         all_freq[i] += 1
-#     else:
-#         all_freq[i] = 1
+    return freq_obj
 
-# # результат печати
+while True:
+    choise = input("""
+1: Частота использования цифр в диапазоне чисел
+2: Частота использования символов в тексте
+Выберите цифру?
+""")
 
-# print(all_freq)
+    if choise == '1':
+        begin = int(input("Введите начало массива = "))
+        end = int(input("Введите начало массива = "))
 
-begin = int(input("Введите начало массива = "))
-end = int(input("Введите начало массива = "))
+        strNum = ''
+        while begin <= end:
+            strNum += str(begin)
+            begin += 1
 
-strNum = ''
-while begin <= end:
-    strNum += str(begin)
-    begin += 1
+        print(freq(strNum))
 
-print(strNum)
+    if choise == '2':
+        word = input("Введите слово = ")
+        print(freq(word))
 
-all_freq = {}
-
-for i in strNum:
-    if i in all_freq:
-        all_freq[i] += 1
-    else:
-        all_freq[i] = 1
-
-# результат печати
-
-print(all_freq)
+    if choise == 'выход':
+        print('Спасибо что воспользовались мной)')
+        break;

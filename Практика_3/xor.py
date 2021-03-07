@@ -28,12 +28,12 @@ def decryption(msg, key):
 
 encmsg = encryption(msg, key)
 
-with open("/home/admin/Документы/forTensor/Практика_3/test.txt", "w") as file:
+with open("test.txt", "w") as file: #nen желательно по
     file.write(encmsg)
 
 print(encmsg)
 
-with open("/home/admin/Документы/forTensor/Практика_3/test.txt", "r") as file:
+with open("test.txt", "r") as file:
     for line in file:
         decmsg = decryption(encmsg, key)
 
