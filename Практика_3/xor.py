@@ -31,10 +31,10 @@ encmsg = encryption(msg, key)
 with open("test.txt", "w") as file: #nen желательно по
     file.write(encmsg)
 
-print(encmsg)
+print(encmsg) # сообщение скорее всего не выдаст, или не полностью, лучше смотреть в созданном файле
 
 with open("test.txt", "r") as file:
     for line in file:
         decmsg = decryption(encmsg, key)
 
-print(decmsg)
+print(f'Декодированное сообщение = {decmsg}')
