@@ -1,25 +1,17 @@
 def encryption(msg, key):
     crypt = ""
-    itr = 0
 
-    while len(key) < len(msg):
-        key += key
+    for i in range(len(msg)):
+        crypt += chr(ord(msg[i]) ^ ord(key[i % len(key)]))
 
-    for i in msg:
-        crypt += chr(ord(i) ^ ord(key[itr]))
-        itr += 1
     return crypt
 
 def decryption(msg, key):
     decrypt = ""
-    itr = 0
 
-    while len(key) < len(msg):
-        key += key
-
-    for i in msg:
-        decrypt += chr(ord(i)^ord(key[itr]))
-        itr += 1
+    for i in range(len(msg)):
+        decrypt += chr(ord(msg[i]) ^ ord(key[i % len(key)]))
+        
     return decrypt
 
 with open("test.txt", "r", encoding='utf-8') as file: 
@@ -34,7 +26,7 @@ encmsg = encryption(msg, key)
 with open("test.txt", "w") as file: 
     file.write(encmsg)
 
-print(encmsg) # сообщение скорее всего не выдаст, или не полностью, лучше смотреть в созданном файле
+#print(encmsg) # сообщение скорее всего не выдаст, или не полностью, лучше смотреть в созданном файле
 
 with open("test.txt", "r") as file:
     for line in file:
