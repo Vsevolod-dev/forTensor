@@ -20,12 +20,14 @@ def fillList(listNum):
 
     return listNum
     
-
+# Сортировка пузырьком
 def buble(listNum):
+    
     for i in range(len(listNum) - 1):
-        for j in range(len(listNum)-i-1):
-            if listNum[j] > listNum[j+1]:
-                listNum[j], listNum[j+1] = listNum[j+1], listNum[j]
+        for j in range(len(listNum) - i - 1):
+            if listNum[j] > listNum[j + 1]:
+                listNum[j], listNum[j + 1] = listNum[j + 1], listNum[j]
+
     return listNum
 
 

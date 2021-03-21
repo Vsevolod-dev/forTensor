@@ -1,40 +1,35 @@
+def cryption(msg, key):
+    """Функция шифрования и дешифрования    
+
+    Keyword arguments:
+    msg -- наше сообщение(или шифрованное сообщение)
+    key -- наш ключ
+
+    return:
+    crypt -- зашифрованное/расшифрованное сообщение
+    """
+    crypt = ""
+
+    # Итерация по слову и исключающее или посимвольно с ключом.
+    for i in range(len(msg)):
+        crypt += chr(ord(msg[i]) ^ ord(key[i % len(key)]))
+
+    return crypt
+
 msg = input("Введите слово = ")
 key  = input("Введите ключ = ")
 
-def encryption(msg, key):
-    crypt = ""
-    itr = 0
+encmsg = cryption(msg, key)
 
-    while len(key) < len(msg):
-        key += key
-
-    for i in msg:
-        crypt += chr(ord(i) ^ ord(key[itr]))
-        itr += 1
-    return crypt
-
-
-def decryption(msg, key):
-    decrypt = ""
-    itr = 0
-
-    while len(key) < len(msg):
-        key += key
-
-    for i in msg:
-        decrypt += chr(ord(i)^ord(key[itr]))
-        itr += 1
-    return decrypt
-
-encmsg = encryption(msg, key)
-
-with open("test.txt", "w") as file: #nen желательно по
+# Открытие файла и чтение из него.
+with open("test.txt", "w") as file:
     file.write(encmsg)
 
-print(encmsg) # сообщение скорее всего не выдаст, или не полностью, лучше смотреть в созданном файле
+print(encmsg)
 
+# Открытие файла и чтение из него, функция шифрования.
 with open("test.txt", "r") as file:
     for line in file:
-        decmsg = decryption(encmsg, key)
+        decmsg = cryption(encmsg, key)
 
 print(f'Декодированное сообщение = {decmsg}')

@@ -1,24 +1,39 @@
 from sys import exit
 
 def calc(a=1, b=2, operation="+"):
+    """Калькулятор базовых операций
+    
+    Keyword arguments:
+    a -- первый аргумент
+    b -- второй аргумент
+    operation -- знак оперции
+    """
+
+    # Функция сложения
     def add(a1, b1):
         return a1 + b1
-
+    
+    # Функция вычитания
     def remove(a1, b1):
         return a1 - b1
-
+    
+    # Функция умножения
     def multiply(a1, b1):
         return a1 * b1
-
+    
+    # Функция деления
     def divide(a1, b1):
         return a1 / b1
 
+    # Функция нахождения целой части.
     def intPart(a1, b1):
         return a1 // b1
 
+    # Функция нахождения остатка.
     def mod(a1, b1):
         return a1 % b1
 
+    # Функция возведения в степень.
     def pow(a1, b1):
         return a1 ** b1
 

@@ -9,6 +9,27 @@ def freq(str):
 
     return freq_obj
 
+def fill(begin, end):
+    strNum = ''
+
+    # Если первый элемент больше последнего
+    # строка заполняется элементами от начала до конца
+    # (заполнение с элементами с конца)
+    if end < begin:
+        while end < begin:
+            strNum += str(begin)
+            begin -= 1
+
+    # Если первый элемент меньше последнего 
+    # строка заполняется элементами от начала до конца
+    # (заполнение с элементами с начала)      
+    if begin <= end:
+        while begin <= end:
+            strNum += str(begin)
+            begin += 1
+    
+    return strNum
+
 while True:
     choise = 0
     try:
@@ -32,21 +53,10 @@ while True:
                 print("Нужно вводить только числа")
             else:
                 break
-
-        strNum = ''
-
-        if end < begin:
-            while end <= begin:
-                strNum += str(begin)
-                begin -= 1
-                
-        if begin <= end:
-            while begin <= end:
-                strNum += str(begin)
-                begin += 1
-
         
-                
+        # Заполнение строки
+        strNum = fill(begin, end)
+      
         print(strNum)
         print(freq(strNum))
 

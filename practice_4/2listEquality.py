@@ -22,9 +22,12 @@ def fillList(listNum):
 
 list1 = []
 list2 = []
+
+# Заполнение списков
 list1 = fillList(list1)
 list2 = fillList(list2)
 
+# Сортировка для правильного порядка в списках.
 list1.sort()
 list2.sort()
 

@@ -20,9 +20,11 @@ def fillList(listNum):
 
     return listNum
 
+# Функция поиска значений, которые уже встречались.
 def delDub(list):
     newList = []
-    list.reverse() #реверс нужен потому что стоит условие про предыдущие элементы
+    # Реверс, для условия о том, что стоит условие про предыдущие элементы. 
+    list.reverse() 
     for i in list:
         if i not in newList:
             newList.append(i)
