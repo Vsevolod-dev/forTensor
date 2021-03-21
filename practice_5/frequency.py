@@ -1,8 +1,4 @@
-# Подсчета частоты вхождений символов в текст.
-def freq_word(word):
-    freq_word = {}
-    for i in word: freq_word[i] = freq_word[i] + 1 if i in freq_word else 1
-    return freq_word
+from modules import freq_module
 
 # Разделение по пробелам для предложения и нахождения количества слов. 
 def freq_sentence(sentence):
@@ -22,7 +18,7 @@ choise = input("""
 """)
 if choise == '1':
     word = input('Введите слово: ')
-    print(freq_word(word))
+    print(freq_module(word))
 
 if choise == '2':    
     sentence = input('Введите предложение: ')

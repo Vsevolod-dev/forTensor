@@ -1,20 +1,4 @@
-def cryption(msg, key):                  
-    """Функция шифрования и дешифрования    
-
-    Keyword arguments:
-    msg -- наше сообщение(или шифрованное сообщение)
-    key -- наш ключ
-
-    return:
-    crypt -- зашифрованное/расшифрованное сообщение
-    """
-    crypt = ""
-
-    # Итерация по слову и исключающее или посимвольно с ключом.
-    for i in range(len(msg)):
-        crypt += chr(ord(msg[i]) ^ ord(key[i % len(key)]))
-
-    return crypt
+from modules import xor_module
 
 # Открытие файла и чтение из него.
 with open("test.txt", "r", encoding='utf-8') as file: 
@@ -24,7 +8,7 @@ print(msg)
 
 key = input("Введите ключ = ")
 
-encmsg = cryption(msg, key)
+encmsg = xor_module.cryption(msg, key)
 
 # Открытие файла и запись из него.
 with open("test.txt", "w") as file: 
@@ -33,6 +17,6 @@ with open("test.txt", "w") as file:
 # Открытие файла и чтение из него, функция шифрования.
 with open("test.txt", "r") as file:
     for line in file:
-        decmsg = cryption(encmsg, key)
+        decmsg = xor_module.cryption(encmsg, key)
 
 print(f'Декодированное сообщение = {decmsg}')

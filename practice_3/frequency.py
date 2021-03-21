@@ -1,13 +1,4 @@
-def freq(str):
-    freq_obj = {}
-
-    for i in str:
-        if i in freq_obj:
-            freq_obj[i] += 1
-        else:
-            freq_obj[i] = 1
-
-    return freq_obj
+from modules import freq_module
 
 def fill(begin, end):
     strNum = ''
@@ -58,11 +49,11 @@ while True:
         strNum = fill(begin, end)
       
         print(strNum)
-        print(freq(strNum))
+        print(freq_module(strNum))
 
     if choise == 2:
         word = str(input("Введите слово = "))
-        print(freq(word))
+        print(freq_module(word))
 
     if choise == 3:
         print('Спасибо что воспользовались мной)')

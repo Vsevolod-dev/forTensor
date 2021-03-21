@@ -1,5 +1,5 @@
-from math import sqrt
 from sys import exit
+from modules import quadratic_equation_module as qem
 
 a = float(input('Введите первый коэфицент? '))
 b = float(input('Введите второй коэфицент? '))
@@ -12,17 +12,4 @@ if a == 0:
 
 disc = b**2 - 4*a*c
 
-if disc == 0:
-    x = -b / (2 * a)
-    print("Корень уравнения = ", x)
-elif disc > 0:
-    x1 = (-b + pow(disc, 0.5)) / (2*a) #без использования библеотек 
-    x2 = (-b - sqrt(disc)) / (2*a) #с использованием библеотекb math
-    print("Первый корень = ", x1, "\nВторой корень = ", x2)
-else: 
-    deistvChast = -b / (2*a) #действительная часть
-    mnimChast = sqrt(-disc)  #мнимая часть 
-    x1 = complex(deistvChast, mnimChast)
-    x2 = complex(deistvChast, -mnimChast)
-    print("Первый корень = ", x1)
-    print("Второй корень = ", x2)
+qem(disc, a, b)
